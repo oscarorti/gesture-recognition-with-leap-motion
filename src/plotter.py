@@ -16,7 +16,7 @@ class Plotter:
 
         def animate(i):
             x = np.linspace(0, 2, 1000)
-            for i, y_values in enumerate(frame_listener.get_angle_data()):
+            for i, y_values in enumerate(frame_listener.__get_angle_data()):
                 self.lines[i].set_data(x, list(y_values))
             return self.lines
 

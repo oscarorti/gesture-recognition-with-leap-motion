@@ -9,7 +9,7 @@ import sys
 # import src dependences
 import classListener
 from plotter import Plotter
-import GUI
+import cameras
 
 # Setup environment variables
 src_dir = os.path.dirname(inspect.getfile(inspect.currentframe()))
@@ -30,15 +30,13 @@ def main():
     listener = classListener.MyListener()
     controller = Leap.Controller()
     controller.set_policy_flags(Leap.Controller.POLICY_IMAGES)
-
     # Have the sample listener receive events from the controller
     controller.add_listener(listener)
-
     # 1D plot
     # plotter = Plotter(listener)
 
     try:
-        GUI.run(controller)
+        cameras.run(controller)
     except KeyboardInterrupt:
         sys.exit(0)
     while True:

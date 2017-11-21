@@ -99,16 +99,3 @@ def run(controller):
 
             if cv2.waitKey(1) & 0xFF == ord('q'):
                 break
-
-
-def main():
-    controller = Leap.Controller()
-    controller.set_policy_flags(Leap.Controller.POLICY_IMAGES)
-    try:
-        run(controller)
-    except KeyboardInterrupt:
-        sys.exit(0)
-
-
-if __name__ == '__main__':
-    main()
