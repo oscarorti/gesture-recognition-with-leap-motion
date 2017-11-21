@@ -84,6 +84,7 @@ class SampleListener(Leap.Listener):
         if not frame.hands.is_empty:
             print ""
 
+
 def main():
     # Create a sample listener and controller
     listener = SampleListener()
