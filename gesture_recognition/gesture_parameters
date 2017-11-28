@@ -1,0 +1,23 @@
+# Custom values
+circle_min_radius = 30.0  # unit: mm
+circle_min_arc = 1.5 * math.pi	  # unit: radians
+swipe_min_length = 150.0  # unit: mm
+swipe_min_velocity = 1000.0  # unit: mm/s
+keytap_min_down_velocity = 1000.0  # unit: mm/s
+keytap_history_seconds = .001  # unit: s
+keytap_min_distance = 50.0  # unit: mm
+screentap_min_forward_velocity = 50.0  # unit: mm/s
+screentap_history_seconds = .001  # unit: s
+screentap_min_distance = 5.0  # unit: mm
+
+# Default values
+# circle_min_radius = 5.0  # unit: mm
+# circle_min_arc = 1.5 * math.pi	  # unit: radiansc
+# swipe_min_length = 150.0  # unit: mm
+# swipe_min_velocity = 1000  # unit: mm/s
+# keytap_min_down_velocity = 50.0  # unit: mm/s
+# keytap_history_seconds = .1  # unit: s
+# keytap_min_distance = 3.0  # unit: mm
+# screentap_min_forward_velocity = 50.0  # unit: mm/s
+# screentap_history_seconds = .1  # unit: s
+# screentap_min_distance = 5.0  # unit: mm

@@ -1,1 +1,6 @@
+# MacOS files
 .DS_Store
+
+# Python precompiled files
+.pyc
+
