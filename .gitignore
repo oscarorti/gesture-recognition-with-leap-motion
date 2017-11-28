@@ -4,3 +4,5 @@
 # Python precompiled files
 .pyc
 
+# Script for remove .pyc files in git repository
+remove_pyc.sh
