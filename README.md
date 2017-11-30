@@ -1,20 +1,20 @@
 ﻿README - GESTURE RECOGNITION SOFTWARE
 ===================
 ----------
-### Table of contents
-[TOC]
 ### Introduction
+This project provides a way to do a facial detection and gesture recognition of the user. Once the user is detected, the gesture recognition module will be open and start running.
 
-
+This program has been done as the Advanced Engineering Project in the UPC (Polytechnic University of Catalonia).
 
 ----------
 ### Getting started
 Following these instructions, you will be able to get you a copy of the project up and running on your local machine for code development and testing purposes.
 
-####Prerequisites
+**PREREQUISITES**
+
  - ***Operating System***
  
-> - **Windows**
+> - *Windows*
 >> - Windows® 7 or later 
 >>- 1 GB RAM minimum
 >> - 2 GB RAM recommended
@@ -23,7 +23,7 @@ Following these instructions, you will be able to get you a copy of the project 
 > 
 > 
 > 
-> - **macOS**
+> - *macOS*
 >> - Mac® OS X 10.8 or later
 >> - 1 GB RAM minimum
 >> - 2 GB RAM recommended
@@ -31,13 +31,14 @@ Following these instructions, you will be able to get you a copy of the project 
 > 
 > 
 > 
-> - **Linux**
+> - *Linux*
 >> - 512 MB RAM minimum, 1 GB RAM recommended
 >> - 1024x768 minimum screen resolution
 >> - Python 2.4 or higher, Jython, PyPy or IronPython
 
 
-####Installation
+**INSTALLATION**
+
 - ***Software***
 
 > - Download **Anaconda** for the following Operating Systems:
@@ -64,38 +65,24 @@ Following these instructions, you will be able to get you a copy of the project 
 >> - [Installing](https://www.leapmotion.com/setup/desktop/osx) on macOS
 >> - [Installing](https://www.leapmotion.com/setup/desktop/linux) on Linux
 
-----------
-### Visualizer 
-####General Controls
-You can control the Visualizer with key commands.
->**Esc** — Quit the Visualizer.
->**H** — Display the Visualizer framerate, Leap Motion framerate, and key commands.
->**S** — Switch between windowed mode and fullscreen.
->**Z** — Flip the positive and negative directions of the z-axis.
->**G** — Toggle the coordinate grid.
->**J** — Switch between black and blue or white and gray (Jony mode).
->**I** — Toggle interpolation of finger tip trails.
->**Y** — Toggle artistic drawing of finger tip trails.
->**L** — Display tracking info, including labeled axes, field of view, finger tip coordinates, and processing latency.
->**T** — Toggles the display of fingers between lines and cylinders.
->**N** — Cycles the display of palm tracking data between fingers only, palm plane, and hand ball modes.
->**F** — Toggles the display of raw stereo images.
->**P** — Pauses and unpauses the visualization display.
->**B** — Displays screen location visuals. Note that the Screen feature is not currently supported in the API.
->**.** — Mirrors the screen contents in the visualizer window (screen location visuals must also be displayed for the mirrored monitor to be shown).
->**D** — Toggles the touch emulation drawing mode.
->**Space** - Clear the any drawing currently on screen.
-####Camera Controls
-The Visualizer displays finger tip trails in 3D space. You can control the camera with the following keys:
->**=** — Zoom the camera in.
->**-** — Zoom the camera out.
->**V** — Cycle the camera between the view modes.
->**A** — Automatically pan the camera to keep tracked fingers in view when they move near the edges.
->**C** — Recenter the camera to place tracked fingers in the center of the view.
-**Left and right arrows** — Start and stop view rotation in orthographic view.
-**Mouse click and drag** — Rotate the camera in orthographic view.
-**Mouse right-click and drag** — Pan the camera.
 
+- ***Dependencies***
+
+> - OpenCV
+> - Dlib 
+
+
+----------
+### First Steps
+
+- Clone repository 
+```bash
+git clone https://github.com/oscarorti/pae-gesture-recognition.git
+```
+- Execute *gesture_recognition.py*
+```bash
+python 
+```
 
 ----------
 ### Authors
@@ -105,12 +92,8 @@ Patricia Palacín Lafuente - <patricia.palacin@alu-etsetb-upc.edu>
 Paula Ramos Garcia - <paula.ramos@alu-etsetb-upc.edu>
 
 ----------
-### License
-This project is licensed under the UPC License - see the [license](https://www.upc.edu/comunicacio/ca/identitat/Llicencia/9.09AprovaciodelanormativadellicenciadusdelaMarcaUPCiaprovaciodelestarifesdecontractedelallicenciade4.pdf/view) file for details. 
-
-----------
 ### Acknowledgements
-- Anyone whose code was used
+- UPC ETSETB for providing us the necessary tools for carrying out this project, as well as the opportunity to work with such an internationally well-known company as Lear Corporation.
 
 
 
