@@ -28,6 +28,8 @@ import Leap
 class MyListener(Leap.Listener):
     FINGERS = ['Thumb', 'Index', 'Middle', 'Ring', 'Pinky']
     FINGER_BONES = ['Metacarpal', 'Proximal', 'Intermediate', 'Distal']
+    last_static_gesture = 0
+    static_gesture = 0
 
     def __init__(self):
         """
@@ -68,7 +70,6 @@ class MyListener(Leap.Listener):
     def on_frame(self, controller):
         # Get the most recent frame and report some basic information
         frame = controller.frame()
-        previous_frame = controller.frame(1)
 
         # Get gestures
         my_gesture = Gesture()
@@ -76,28 +77,28 @@ class MyListener(Leap.Listener):
             if gesture.type == Leap.Gesture.TYPE_CIRCLE:
                 gesture_id, state, radius, hand_type, clockwiseness = my_gesture.circle_processing(controller, gesture)
                 if state is not "STATE_UPDATE":
-                    print "CIRCLE", state, radius, hand_type, clockwiseness
+                    print "DINAMIC GESTURE DETECTED: CIRCLE!\n", \
+                         "With ", hand_type, "and direction ", clockwiseness, "\n",\
+                         "Additional information: ", "circle radius is ", radius, ". State: ", state, "\n"
 
             elif gesture.type == Leap.Gesture.TYPE_SWIPE:
-                hand_type2 = ""
-                swipe_direction2 = ""
 
                 gesture_id, state, hand_type, swipe_direction = my_gesture.swipe_processing(gesture)
 
-                for _gesture in frame.gestures(previous_frame):
-                    if _gesture.type is Leap.Gesture.TYPE_SWIPE:
-                        gesture_id2, state2, hand_type2, swipe_direction2 = my_gesture.swipe_processing(_gesture)
-
-                print swipe_direction2, swipe_direction, hand_type2, hand_type
-                print "SWIPE", hand_type, swipe_direction
+                print "DINAMIC GESTURE DETECTED: SWIPE!\n", \
+                    "With ", hand_type, "and direction ", swipe_direction, "\n", \
+                    "Additional information. State: ", state, "\n"
 
             elif gesture.type == Leap.Gesture.TYPE_KEY_TAP:
                 gesture_id, state, hand_type = my_gesture.keytap_processing(gesture)
-                print "KEY TAP", hand_type
+                if state is not "STATE_UPDATE":
+                    print "DINAMIC GESTURE DETECTED: KEY_TAP!\n", \
+                         "With ", hand_type, "\n"
 
             elif gesture.type == Leap.Gesture.TYPE_SCREEN_TAP:
                 gesture_id, state, hand_type = my_gesture.screentap_processing(gesture)
-                print "SCREEN TAP", hand_type
+                print "DINAMIC GESTURE DETECTED: SCREEN_TAP!\n", \
+                    "With ", hand_type, "\n"
 
         if not frame.gestures():
             i = 0
@@ -106,16 +107,26 @@ class MyListener(Leap.Listener):
                 finger_is_extended[i] = finger.is_extended
                 i = i + 1
 
-            if True is finger_is_extended[0] and False is finger_is_extended[1] and \
+            if True is finger_is_extended[0] and \
+                            False is finger_is_extended[1] and \
                             False is finger_is_extended[2] and  \
                             False is finger_is_extended[3] and \
                             False is finger_is_extended[4]:
-                print "One finger extended"
-            if True is finger_is_extended[0] and True is finger_is_extended[1] and \
+                self.static_gesture = 1
+            if True is finger_is_extended[0] and \
+                            True is finger_is_extended[1] and \
                             True is finger_is_extended[2] and \
                             True is finger_is_extended[3] and \
                             True is finger_is_extended[4]:
-                print "extended hand"
+                self.static_gesture = 2
+
+        if self.last_static_gesture is not self.static_gesture:
+            if self.static_gesture is 1:
+                print "STATIC GESTURE DETECTED: ONE FINGER EXTENDED! \n"
+                self.last_static_gesture = self.static_gesture
+            if self.static_gesture is 2:
+                print "STATIC GESTURE DETECTED: HAND EXTENDED! \n"
+                self.last_static_gesture = self.static_gesture
 
     def is_same_swipe_than_previous(self, hand_type, hand_type2, swipe_direction, swipe_direction2):
         if swipe_direction is not swipe_direction2 or hand_type is not hand_type2:

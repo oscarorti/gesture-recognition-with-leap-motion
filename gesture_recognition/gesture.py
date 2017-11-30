@@ -52,37 +52,37 @@ class Gesture(object):
 
     def __get_circle_direction(self, circle):
         if circle.pointable.direction.angle_to(circle.normal) <= Leap.PI / 2:
-            clockwiseness = "clockwise"
+            clockwiseness = "CLOCKWISE"
         else:
-            clockwiseness = "counterclockwise"
+            clockwiseness = "COUNTERCLOCKWISE"
 
         return clockwiseness
 
     def __get_screentap_hand(self, screentap):
-        handType = "Left hand" if screentap.hands[0].is_left else "Right hand"
+        handType = "LEFT HAND" if screentap.hands[0].is_left else "RIGHT HAND"
         return handType
 
     def __get_keytap_hand(self, keytap):
-        handType = "Left hand" if keytap.hands[0].is_left else "Right hand"
+        handType = "LEFT HAND" if keytap.hands[0].is_left else "RIGHT HAND"
         return handType
 
     def __get_swipe_hand(self, swipe):
-        handType = "Left hand" if swipe.hands[0].is_left else "Right hand"
+        handType = "LEFT HAND" if swipe.hands[0].is_left else "RIGHT HAND"
         return handType
 
     def get_swipe_direction(self, swipe):
         if swipe.direction[0] > 0 and math.fabs(swipe.direction[0]) > math.fabs(swipe.direction[1]):
-            swipe_direction = "right"
+            swipe_direction = "RIGHT"
         elif swipe.direction[0] < 0 and math.fabs(swipe.direction[0]) > math.fabs(swipe.direction[1]):
-            swipe_direction = "left"
+            swipe_direction = "LEFT"
         elif swipe.direction[1] > 0 and math.fabs(swipe.direction[0]) < math.fabs(swipe.direction[1]):
-            swipe_direction = "up"
+            swipe_direction = "UP"
         elif swipe.direction[1] < 0 and math.fabs(swipe.direction[0]) < math.fabs(swipe.direction[1]):
-            swipe_direction = "down"
+            swipe_direction = "DOWN"
         return swipe_direction
 
     def __get_circle_hand(self, circle):
-        handType = "Left hand" if circle.hands[0].is_left else "Right hand"
+        handType = "LEFT HAND" if circle.hands[0].is_left else "RIGHT HAND"
         return handType
 
     def __state_string(self, state):

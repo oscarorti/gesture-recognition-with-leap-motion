@@ -20,5 +20,5 @@ if __name__ == '__main__':
     face_detection_thread.start()
 
     while True:
-        if face_detect_best.face_detected:
+        if face_detect_best.face_detected and not gesture_recogntion_thread.isAlive():
             gesture_recogntion_thread.start()

@@ -1,4 +1,4 @@
-﻿README - GESTURE RECOGNITION SOFTWARE
+README - GESTURE RECOGNITION SOFTWARE
 ===================
 ----------
 ### Introduction
@@ -66,10 +66,10 @@ Following these instructions, you will be able to get you a copy of the project 
 >> - [Installing](https://www.leapmotion.com/setup/desktop/linux) on Linux
 
 
-- ***Dependencies***
+- ***Python dependencies***
 
-> - OpenCV
-> - Dlib 
+> - opencv >= 3.1.0
+> - dlib >= 18.18
 
 
 ----------
@@ -77,11 +77,13 @@ Following these instructions, you will be able to get you a copy of the project 
 
 - Clone repository 
 ```bash
-git clone https://github.com/oscarorti/pae-gesture-recognition.git
+git clone https://github.com/oscarorti/upc-leap-motion-gesture-recognition
 ```
+
 - Execute *gesture_recognition.py*
 ```bash
-python 
+cd upc-leap-motion-gesture-recognition
+python launch.py
 ```
 
 ----------
