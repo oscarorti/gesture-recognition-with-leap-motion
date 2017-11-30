@@ -70,6 +70,7 @@ Following these instructions, you will be able to get you a copy of the project 
 
 > - opencv >= 3.1.0
 > - dlib >= 18.18
+> - numpy >= 1.13.3
 
 
 ----------

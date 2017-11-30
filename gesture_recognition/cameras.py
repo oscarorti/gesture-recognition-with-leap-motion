@@ -7,7 +7,8 @@ import os
 import inspect
 import cv2
 import ctypes
-import numpy as np, sys
+import numpy as np
+import sys
 
 # Setup environment variables
 src_dir = os.path.dirname(inspect.getfile(inspect.currentframe()))
@@ -17,8 +18,6 @@ arch_dir = '../LeapSDK/lib/x64' if sys.maxsize > 2**32 else '../LeapSDK/lib/x86'
 # arch_dir = os.path.abspath(os.path.join(src_dir, '../lib')
 sys.path.insert(0, os.path.abspath(os.path.join(src_dir, arch_dir)))
 sys.path.insert(0, "../LeapSDK/lib")
-
-import Leap
 
 
 def convert_distortion_maps(image):
