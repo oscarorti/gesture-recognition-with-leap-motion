@@ -84,7 +84,7 @@ git clone https://github.com/oscarorti/upc-leap-motion-gesture-recognition
 - Execute *gesture_recognition.py*
 ```bash
 cd upc-leap-motion-gesture-recognition
-python launch.py
+python main.py
 ```
 
 ----------
