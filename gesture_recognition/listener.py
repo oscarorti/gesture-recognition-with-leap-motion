@@ -102,7 +102,7 @@ class MyListener(Leap.Listener):
 
         if not frame.gestures():
             i = 0
-            finger_is_extended = ['', '', '', '', '']
+            finger_is_extended = ['', '', '', '', '', '', '', '', '', '']
             for finger in frame.fingers:
                 finger_is_extended[i] = finger.is_extended
                 i = i + 1

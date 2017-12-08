@@ -9,6 +9,7 @@ import cv2
 import ctypes
 import numpy as np
 import sys
+import time
 
 # Setup environment variables
 src_dir = os.path.dirname(inspect.getfile(inspect.currentframe()))
@@ -80,7 +81,8 @@ def undistort(image, coordinate_map, coefficient_map, width, height):
 
 def run(controller):
     maps_initialized = False
-    while (True):
+    t_end = time.time() + 60
+    while time.time() < t_end:
         frame = controller.frame()
         image = frame.images[0]
         if image.is_valid:
@@ -95,6 +97,3 @@ def run(controller):
             # display images
             cv2.imshow('Left Camera', undistorted_left)
             cv2.imshow('Right Camera', undistorted_right)
-
-            if cv2.waitKey(1) & 0xFF == ord('q'):
-                break

@@ -7,7 +7,8 @@ import inspect
 import os
 import sys
 from listener import MyListener
-import cameras
+from face_detection import face_detector_gui
+import time
 
 # Setup environment variables
 src_dir = os.path.dirname(inspect.getfile(inspect.currentframe()))
@@ -23,23 +24,25 @@ sys.path.insert(0, "../LeapSDK/lib")
 import Leap
 
 
-def run():
-    # Create a sample listener and controller
-    listener = MyListener()
-    controller = Leap.Controller()
-    controller.set_policy_flags(Leap.Controller.POLICY_IMAGES)
-    # Have the sample listener receive events from the controller
-    controller.add_listener(listener)
-    # 1D plot
-    # plotter = Plotter(listener)
+def run_step():
 
-    try:
-        cameras.run(controller)
-    except KeyboardInterrupt:
-        sys.exit(0)
-    while True:
-        pass
+    face = face_detector_gui.FDetector()
+    face.run()
+    print face.face_detected
+    if face.face_detected:
+        # Create a sample listener and controller
+        listener = MyListener()
+        controller = Leap.Controller()
+        controller.set_policy_flags(Leap.Controller.POLICY_IMAGES)
+        # Have the sample listener receive events from the controller
+        controller.add_listener(listener)
+
+        t_end = time.time() + 20
+        while time.time() < t_end:
+            pass
+    return
 
 
 if __name__ == "__main__":
-    run()
+    while True:
+        run_step()
