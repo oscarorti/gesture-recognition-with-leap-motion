@@ -28,8 +28,9 @@ def run_step():
 
     face = face_detector_gui.FDetector()
     face.run()
-    print face.face_detected
+    print('Is face detected? ', face.face_detected)
     if face.face_detected:
+        print("Enabled Gesture Recognition")
         # Create a sample listener and controller
         listener = MyListener()
         controller = Leap.Controller()
@@ -40,6 +41,7 @@ def run_step():
         t_end = time.time() + 20
         while time.time() < t_end:
             pass
+        print('Disabled Gesture Recognition')
     return
 
 
