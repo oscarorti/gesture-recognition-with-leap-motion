@@ -1,4 +1,4 @@
-README - GESTURE RECOGNITION SOFTWARE
+GESTURE RECOGNITION SOFTWARE (Leap Motion based)
 ===================
 ----------
 ### Introduction
